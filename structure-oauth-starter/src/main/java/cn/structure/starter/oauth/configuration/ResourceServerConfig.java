@@ -40,11 +40,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Resource
     private OauthProperties oauthProperties;
 
-    @Bean
-    @ConditionalOnMissingBean(TokenStore.class)
-    public TokenStore tokenStore() {
-        return new InMemoryTokenStore();
-    }
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http
