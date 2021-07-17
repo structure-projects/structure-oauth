@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: oauth_example
+  datasource:
+    username: gcxm
+    password: WFJ4ekTwkhRwAiHZ
+    url: jdbc:mysql://39.97.124.2:3306/gcxm?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+structure:
+  oauth:
+    is-check-verification-code: false
+    is-verification-code: true
+    client-id: web
+    client-secret: web
+    scopes: all
+    validity-seconds: 3600
+    grant-types:
+      - password
+      - refresh_token
+    oauth-host: http://localhost:8080/oauth/token
+  security:
+    antMatchers:
+      unAuthenticated:
+        # 不经过身份验证的接口
+        - /login
+        - /doc.html
+        - /webjars/**
+        - /swagger-resources/**
+        - /v2/api-docs/**
+    client-id: web
+  log:
+    aop:
+      expression: execution(public * cn.structure.example.log.controller..*Controller.*(..))
+swagger:
+  title: Oauth认证实例
+  description: 所有接口均为oauth2认证方式 例如 Authorization Bearer 9d713366-765e-4f14-8d47-c855b3ccc395 登录接口和登录验证码接口除外
+  version: v1.0.1
