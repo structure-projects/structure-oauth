@@ -11,7 +11,6 @@ import java.util.List;
  * <p>
  * 
  * </p>
- * </p>
  *
  * @author chuck
  * @since 2020-12-08
@@ -83,7 +82,6 @@ private static final long serialVersionUID=1L;
 
     /**
      * 设置权限
-     * @param authorities
      */
     public void setAuthorities(List<Authority> authorities) {
         this.authorities = authorities;

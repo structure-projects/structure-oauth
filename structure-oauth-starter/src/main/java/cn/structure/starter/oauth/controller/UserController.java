@@ -37,7 +37,7 @@ public class UserController {
 
     @DeleteMapping("/delete/{userId}/")
     @ApiOperation(value = "删除一个用户")
-    public ResResultVO delete(@ApiParam("用户ID")@PathVariable("userId") Integer userId){
+    public ResResultVO delete(@ApiParam(value = "用户ID",example = "10")@PathVariable("userId") Integer userId){
         userService.delete(userId);
         return ResResultVO.success(null);
     }
@@ -72,17 +72,17 @@ public class UserController {
 
     @GetMapping("/info/{userId}/")
     @ApiOperation(value = "获取用户信息")
-    public ResResultVO<UserInfoVo> getUserInfoById(@ApiParam("用户ID")@PathVariable("userId") Integer userId){
+    public ResResultVO<UserInfoVo> getUserInfoById(@ApiParam(value = "用户ID",example = "10")@PathVariable("userId") Integer userId){
         return ResResultVO.success(userService.getUserInfoById(userId));
     }
 
     @GetMapping(value = "/{currentPage}/{pageSize}/page")
     @ApiOperation(value = "分页用户列表")
-    public ResResultVO<ResPageDTO<UserInfoVo>> getList(@ApiParam("页码") @PathVariable("currentPage") int currentPage,
-                                                       @ApiParam("页大小")@PathVariable("pageSize") int pageSize,
-                                                       @ApiParam("搜索 -> 昵称和用户名") String search,
-                                                       @ApiParam("是否启用") Boolean enabled,
-                                                       @ApiParam("是否锁定") Boolean locked
+    public ResResultVO<ResPageDTO<UserInfoVo>> getList(@ApiParam(value = "页码",example = "1") @PathVariable("currentPage") int currentPage,
+                                                       @ApiParam(value = "页大小",example = "20")@PathVariable("pageSize") int pageSize,
+                                                       @ApiParam(value = "搜索 -> 昵称和用户名",example = "孤独的风") @RequestParam(value = "search") String search,
+                                                       @ApiParam(value = "是否启用",example = "true") @RequestParam(value = "enabled") Boolean enabled,
+                                                       @ApiParam(value = "是否锁定",example = "false") @RequestParam(value = "locked") Boolean locked
                                                        ){
         return ResResultVO.success(userService.getList(currentPage,pageSize,search,enabled,!locked));
     }

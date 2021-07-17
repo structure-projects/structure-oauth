@@ -23,49 +23,37 @@ public interface IAdminService {
 
     /**
      * 通过用户ID查询用户权限
-     * @param userId
-     * @return
      */
     CurrentAuthorityVo findCurrentAuthorityByUserId(Integer userId);
 
     /**
      * 查询所有权限
-     * @return
      */
     List<AuthorityVo> findAllAuthority();
 
     /**
      * 查询全部角色
-     * @return
      */
     List<RoleVo> findAllRole();
 
     /**
      * 添加角色
-     * @param addRoleVo
-     * @return
      */
     Integer addRole(AddRoleVo addRoleVo);
 
 
     /**
      * 编辑角色
-     * @param editRoleVo
-     * @return
      */
     Integer editRole(EditRoleVo editRoleVo);
 
     /**
      * 删除角色
-     * @param roleId
-     * @return
      */
     Integer deleteRole(Integer roleId);
 
     /**
      * 给用户授权
-     * @param userAuthorizationVo
-     * @return
      */
     Integer userAuthorization(UserAuthorizationVo userAuthorizationVo);
 

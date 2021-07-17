@@ -12,7 +12,6 @@ import java.util.List;
  * 用户账户Mapper
  *
  * @author chuck
- * @date 2020/1/15 17:04
  * @since 1.0.1
  */
 @Mapper
@@ -22,7 +21,6 @@ public interface UserAccountMapper {
      *
      * 根据用户名查询用户账户
      *
-     * @param username
      */
     @Results(id = "userResult",value = {
             @Result(id = true,column = "id",property = "id",jdbcType = JdbcType.INTEGER),

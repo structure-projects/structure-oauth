@@ -27,9 +27,6 @@ public class SecurityUtils {
 
     /**
      * 获取用户
-     *
-     * @param authentication
-     * @return <p>
      */
     public UserAccount getUser(Authentication authentication) {
         Object principal = authentication.getPrincipal();

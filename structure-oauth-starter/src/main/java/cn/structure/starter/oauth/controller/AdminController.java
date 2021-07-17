@@ -9,6 +9,7 @@ import cn.structure.starter.oauth.vo.role.EditRoleVo;
 import cn.structure.starter.oauth.vo.role.RoleVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -56,13 +57,13 @@ public class AdminController {
         return ResResultVO.success(iAdminService.editRole(editRoleVo));
 }
 
-    @PostMapping(value = "deleteRole")
+    @DeleteMapping(value = "/deleteRole/{roleId}")
     @ApiOperation(value = "删除角色")
-    public ResResultVO deleteRole(Integer roleId) {
+    public ResResultVO deleteRole(@ApiParam(value = "角色ID",example = "1") @PathVariable(value = "roleId") Integer roleId) {
         return ResResultVO.success(iAdminService.deleteRole(roleId));
     }
 
-    @PostMapping(value = "userAuthorization")
+    @PostMapping(value = "/userAuthorization")
     @ApiOperation(value = "给用户授权 - 角色，权限")
     public ResResultVO userAuthorization(@Validated @RequestBody UserAuthorizationVo userAuthorizationVo) {
         return ResResultVO.success(iAdminService.userAuthorization(userAuthorizationVo));

@@ -92,7 +92,7 @@ public class LoginController  {
 
     @PostMapping(value = "/login")
     @ApiOperation(value = "用户登录接口", notes = "用户登录成功后返回用户信息")
-    public ResResultVO<TokenUserInfoVo> login(@RequestBody ReqLoginVo login) {
+    public ResResultVO<TokenUserInfoVo> login(@Validated @RequestBody ReqLoginVo login) {
 
         if (oauthProperties.getIsCheckVerificationCode()) {
             return ResResultVO.fail(ErrCodeEnum.ERR_NOT_ENABLE_REGISTER.getCode(), ErrCodeEnum.ERR_NOT_ENABLE_REGISTER.getMsg());

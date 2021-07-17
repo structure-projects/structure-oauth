@@ -14,8 +14,6 @@ public interface UserAuthorityMapper {
 
     /**
      * 查询一个用户的权限
-     * @param userId
-     * @return
      */
     @Results(id = "baseResult",value = {
             @Result(id= true,column = "id",property = "id",jdbcType = JdbcType.INTEGER),
@@ -32,8 +30,6 @@ public interface UserAuthorityMapper {
 
     /**
      * 查询一个用户所有的角色
-     * @param userId
-     * @return
      */
     @Results(value = {
             @Result(id= true,column = "id",property = "id",jdbcType = JdbcType.INTEGER),
@@ -46,8 +42,6 @@ public interface UserAuthorityMapper {
 
     /**
      * 查询一个用户所有的权限包含角色的权限
-     * @param userId
-     * @return
      */
     @ResultMap("baseResult")
     @Select("SELECT a.id,a.name,a.value,a.parent_id,a.type,a.path,a.menu_type,a.icon,a.sort FROM oauth_authority a \n" +
@@ -67,10 +61,6 @@ public interface UserAuthorityMapper {
 
     /**
      * 给用户添加权限
-     * @param authorityIds
-     * @param userId
-     * @param createTime
-     * @return
      */
     @Insert("<script>" +
             "INSERT INTO oauth_user_authority_mapping (user_id,authority_id,create_time) VALUES " +
@@ -82,18 +72,12 @@ public interface UserAuthorityMapper {
 
     /**
      * 删除用户权限
-     * @param userId
-     * @return
      */
     @Delete("DELETE FROM oauth_user_authority_mapping WHERE user_id =#{userId}")
     int deleteUserAuthorityByUserId(Integer userId);
 
     /**
      * 给用户添加角色
-     * @param roleIds
-     * @param userId
-     * @param createTime
-     * @return
      */
     @Insert("<script>" +
             "INSERT INTO oauth_user_role_mapping (user_id,role_id,create_time) VALUES " +
@@ -105,8 +89,6 @@ public interface UserAuthorityMapper {
 
     /**
      * 给用户删除角色
-     * @param userId
-     * @return
      */
     @Delete("DELETE FROM oauth_user_role_mapping WHERE user_id =#{userId}")
     int deleteUserRoleByUserId(Integer userId);

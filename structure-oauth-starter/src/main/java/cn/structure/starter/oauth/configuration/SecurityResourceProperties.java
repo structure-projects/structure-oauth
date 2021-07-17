@@ -24,6 +24,7 @@ import java.util.Map;
 @Configuration
 @ConfigurationProperties(prefix = "structure.security")
 public class SecurityResourceProperties {
+
     private String clientId;
 
     private Map<String, List<String>> antMatchers;

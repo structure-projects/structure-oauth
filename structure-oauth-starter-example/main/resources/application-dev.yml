@@ -1,6 +1,6 @@
 spring:
   application:
-    name: project-manager-erp
+    name: oauth_example
   datasource:
     username: gcxm
     password: WFJ4ekTwkhRwAiHZ
@@ -32,6 +32,6 @@ structure:
     aop:
       expression: execution(public * cn.structure.example.log.controller..*Controller.*(..))
 swagger:
-  title: 工程项目管理API接口文档
+  title: Oauth认证实例
   description: 所有接口均为oauth2认证方式 例如 Authorization Bearer 9d713366-765e-4f14-8d47-c855b3ccc395 登录接口和登录验证码接口除外
   version: v1.0.1

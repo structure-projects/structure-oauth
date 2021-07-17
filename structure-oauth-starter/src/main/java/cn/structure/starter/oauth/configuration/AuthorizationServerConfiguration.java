@@ -18,9 +18,8 @@ import java.util.List;
 
 
 /**
+ * 配置授权中心信息
  * @author: CHUCK
- * @date: 2020/11/13 15:46
- * @description: 配置授权中心信息
  */
 @Configuration
 @EnableAuthorizationServer

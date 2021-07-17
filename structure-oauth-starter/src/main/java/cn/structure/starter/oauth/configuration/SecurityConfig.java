@@ -30,8 +30,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * 拦截所有请求,使用httpBasic方式登陆
-     * @param http
-     * @throws Exception
      */
     @Resource
     private UserDetailsService userDetailsService;

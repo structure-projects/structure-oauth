@@ -22,7 +22,7 @@ public class RoleVo {
     /**
      * 角色ID
      */
-    @ApiModelProperty(value = "角色ID")
+    @ApiModelProperty(value = "角色ID",example = "1")
     private Integer id;
 
     /**
