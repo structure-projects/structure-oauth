@@ -1,0 +1,7 @@
+#Auto Configuration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  cn.structured.oauth.server.configuration.AuthorizationSecurityConfig,\
+  cn.structured.oauth.server.configuration.AutoAuthorizationConfiguration,\
+  cn.structured.oauth.server.configuration.AuthorizationServer,\
+  cn.structured.oauth.server.configuration.OauthProperties,\
+  cn.structured.oauth.server.configuration.OauthJwtProperties

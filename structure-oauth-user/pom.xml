@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>cn.structured</groupId>
+        <artifactId>structure-dependencies</artifactId>
+        <version>1.2.0.RELEASE</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>structure-oauth-user</artifactId>
+    <version>1.2.1.RELEASE</version>
+    <packaging>jar</packaging>
+    <properties>
+        <structure.version>1.2.1.RELEASE</structure.version>
+        <mysql.version>8.0.13</mysql.version>
+        <hutool.version>5.1.0</hutool.version>
+        <aliyun.version>4.0.6</aliyun.version>
+        <aliyun.dysmsapi.version>1.1.0</aliyun.dysmsapi.version>
+    </properties>
+    <dependencies>
+        <!-- mybatis-plus starter-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.structured</groupId>
+            <artifactId>structure-mybatis-plus-starter</artifactId>
+        </dependency>
+        <!-- starter 定义的自动装配依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+
+        <!-- structured 生态公共包 -->
+        <dependency>
+            <groupId>cn.structured</groupId>
+            <artifactId>structure-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.structured</groupId>
+            <artifactId>structure-redis-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+
+        <!-- 阿里短信接口 -->
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-core</artifactId>
+            <version>${aliyun.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+            <version>${aliyun.dysmsapi.version}</version>
+        </dependency>
+
+        <!--邮件发送依赖包-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+        <!--freemarker制作Html邮件模板依赖包-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>swagger-bootstrap-ui</artifactId>
+        </dependency>
+
+        <dependency>
+            <artifactId>structure-oauth-resource-starter</artifactId>
+            <groupId>cn.structured</groupId>
+            <version>1.2.1.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.structured</groupId>
+            <artifactId>structure-oauth-user-api</artifactId>
+            <version>1.2.1.RELEASE</version>
+        </dependency>
+        
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cn.structured</groupId>
+                <artifactId>structure-boot-parent</artifactId>
+                <version>${structure.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>cn.structured</groupId>
+                <artifactId>structure-mybatis-plus-generate</artifactId>
+                <configuration>
+                    <configurationFile>${basedir}/src/main/resources/generator-config.yaml</configurationFile>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${mysql.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

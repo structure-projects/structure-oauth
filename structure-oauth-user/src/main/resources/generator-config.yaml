@@ -1,0 +1,53 @@
+globalConfig:
+  author: chuck
+  open: false
+  idType: NONE
+  #  dateType: ONLY_DATE
+  enableCache: false
+  activeRecord: false
+  baseResultMap: true
+  baseColumnList: true
+  swagger2: false
+  fileOverride: false
+dataSourceConfig:
+  url: jdbc:mysql://127.0.0.1:3306/user?characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai
+  driverName: com.mysql.cj.jdbc.Driver
+  username: root
+  password: xxxxx
+packageConfig:
+  parent: cn.structured.oauth.user
+  moduleName:
+  entity: entity
+  service: service
+  serviceImpl: service.impl
+  mapper: mapper
+  xml: mapper
+  controller: controller
+  pathInfo:
+    entity_path: .\src\main\java\cn\structured\oauth\user\entity
+    #service_path: .\src\main\java\cn\structured\oauth\server\service
+    #service_impl_path: .\src\main\java\cn\structured\oauth\server\service\impl
+    mapper_path: .\src\main\java\cn\structured\oauth\user\mapper
+    xml_path: .\src\main\resources\mapper
+strategyConfig:
+  naming: underline_to_camel
+  columnNaming: underline_to_camel
+  entityLombokModel: true
+  entityTableFieldAnnotationEnable: true
+  entityBooleanColumnRemoveIsPrefix: true # 实体移除is
+  superMapperClass: cn.structured.mybatis.plus.starter.base.IBaseMapper
+  superServiceClass: com.baomidou.mybatisplus.extension.service.IService
+  superServiceImplClass: com.baomidou.mybatisplus.extension.service.impl.ServiceImpl
+  controllerMappingHyphenStyle: true
+  restControllerStyle: true
+  tablePrefix:
+  include:
+tableFill:
+  del_flag: INSERT
+  is_enabled: INSERT
+  create_by: INSERT
+  create_date: INSERT
+  update_date: INSERT_UPDATE
+  create_time: INSERT
+  update_time: INSERT_UPDATE
+  update_by: INSERT_UPDATE

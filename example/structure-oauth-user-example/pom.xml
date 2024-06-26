@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.2.RELEASE</version>
+        <relativePath/><!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>cn.structured</groupId>
+    <artifactId>structure-oauth-user-example</artifactId>
+    <version>1.2.1.RELEASE</version>
+
+    <properties>
+        <spring-boot.version>2.1.2.RELEASE</spring-boot.version>
+        <structure.version>1.2.1.RELEASE</structure.version>
+        <hutool.version>5.1.0</hutool.version>
+        <guava.version>20.0</guava.version>
+    </properties>
+
+    <dependencies>
+        <!-- spring 启动依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <!-- web-restful风格依赖 -->
+        <dependency>
+            <groupId>cn.structured</groupId>
+            <artifactId>structure-restful-web-starter</artifactId>
+        </dependency>
+
+        <!-- 日志插件依赖 -->
+        <dependency>
+            <groupId>cn.structured</groupId>
+            <artifactId>structure-log-starter</artifactId>
+        </dependency>
+
+        <!--这里重新定义是因为组件中存在低版本的hutool工具包，structure-oauth-starter需要更高版本的包低版本会有FileNotFoundException 异常 -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+
+        <!--这个一定要重新定义，是因为部分组件中存在低版本的冲突-->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+        <!-- 用户核心依赖 -->
+        <dependency>
+            <groupId>cn.structured</groupId>
+            <artifactId>structure-oauth-user</artifactId>
+            <version>1.2.1.RELEASE</version>
+        </dependency>
+
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cn.structured</groupId>
+                <artifactId>structure-boot-parent</artifactId>
+                <version>${structure.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
